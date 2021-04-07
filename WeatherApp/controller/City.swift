@@ -37,7 +37,8 @@ class City: UIViewController {
     
     func getWeatherInfo(cityName: String,countryCode: String)
     {
-        guard let requestURL = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(cityName),\(countryCode)&appid=42f5dddd0ad35a92b5a346af6f05bc28") else {
+        let city = cityName.replacingOccurrences(of: " ", with: "%20")
+        guard let requestURL = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(city),\(countryCode)&appid=42f5dddd0ad35a92b5a346af6f05bc28") else {
             print("cannot generate URL")
             return
         }
